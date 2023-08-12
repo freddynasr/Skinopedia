@@ -1,0 +1,16 @@
+.search-screen{
+  min-height: 100vh;
+  margin-bottom: 2rem;
+}
+
+.search-screen h2 {
+  color: #06837b !important;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.search-screen h4{
+  color: #555555;
+  text-align: center;
+  margin-top: 2rem;
+}

@@ -1,0 +1,117 @@
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h3>Skinopedia</h3>
+          <p>
+            Zgharta,<br />
+            Lebanon <br />
+            <strong>Phone: +961 71 941459</strong> <br />
+            <strong>Email: serena.skinopedia@hotmail.com</strong> <br />
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a (click)="navigateToRoute('Home')">Home</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a (click)="navigateToRoute('cart')">Cart</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a (click)="navigateToRoute('About-us')">About us</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a (click)="navigateToRoute('Contact-us')">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Important links</h4>
+          <ul>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a (click)="openDiscountDialog()">terms and conditions</a>
+            </li>
+            <!-- <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="#services">Service 2</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="#services">Service 3</a>
+            </li>
+            <li>
+              <i class="bx bx-chevron-right"></i>
+              <a href="#services">Service 4</a>
+            </li> -->
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Our Social Networks</h4>
+          <p></p>
+          <div class="social-links mt-3">
+            <a [href]="twitter" class="twitter" *ngIf="twitter" target="_blank">
+              <i class="bx bxl-twitter"></i
+            ></a>
+            <a
+              [href]="facebook"
+              class="facebook"
+              *ngIf="facebook"
+              target="_blank"
+            >
+              <i class="bx bxl-facebook"></i
+            ></a>
+            <a
+              [href]="instagram"
+              class="instagram"
+              *ngIf="instagram"
+              target="_blank"
+            >
+              <i class="bx bxl-instagram"></i
+            ></a>
+            <a
+              [href]="tiktok"
+              class="tiktok"
+              *ngIf="tiktok"
+              target="_blank"
+              ><i class="bi bi-tiktok"></i
+            ></a>
+            <a
+              [href]="linkedin"
+              class="linkedin"
+              *ngIf="linkedin"
+              target="_blank"
+            >
+              <i class="bx bxl-linkedin"></i
+            ></a>
+            <a [href]="upwork" class="upwork" *ngIf="upwork" target="_blank">
+              <img src="assets/img/icons8-upwork-50 (1).png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom clearfix">
+    <div class="copyright">
+      &copy; Copyright
+      <strong><span Style="color: #5e5e5e">Skinopedia</span></strong
+      >. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://asynk.tech"><strong>Asynk Tech</strong></a>
+    </div>
+  </div>
+</footer>
+<!-- <div id="preloader"></div> -->

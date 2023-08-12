@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Skinopedia</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+
+    <link rel="icon" type="image/x-icon" href="./assets/img/[removal.ai]_tmp-6478bf0a0ef4c.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBxPWmvI6272pBJbmRP7WKdXhHJgWOw5H8&libraries=places"></script>
+
+</head>
+  <body  class="mat-typography">
+
+    <app-root></app-root>
+    <script>
+      function initMap() {
+        // Get a reference to the Angular injector
+        var injector = ng.probe(document.getElementsByTagName('app-root')[0]).injector;
+        // Get the GoogleMapsService from the injector
+        var googleMapsService = injector.get('GoogleMapsService');
+        // Set map loaded to true
+        googleMapsService.setMapLoaded(true);
+      }
+    </script>
+
+  </body>
+</html>

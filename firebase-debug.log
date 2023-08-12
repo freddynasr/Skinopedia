@@ -1,0 +1,52 @@
+[debug] [2023-06-12T14:15:59.683Z] ----------------------------------------------------------------------
+[debug] [2023-06-12T14:15:59.685Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-06-12T14:15:59.686Z] CLI Version:   12.2.1
+[debug] [2023-06-12T14:15:59.686Z] Platform:      win32
+[debug] [2023-06-12T14:15:59.687Z] Node Version:  v18.16.0
+[debug] [2023-06-12T14:15:59.688Z] Time:          Mon Jun 12 2023 17:15:59 GMT+0300 (Eastern European Summer Time)
+[debug] [2023-06-12T14:15:59.688Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-06-12T14:15:59.698Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-06-12T14:15:59.699Z] > authorizing via signed-in user (freddy.e.nasr@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\User\Desktop\Work\Skinopedia
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-07-11T23:44:23.111Z] ----------------------------------------------------------------------
+[debug] [2023-07-11T23:44:23.112Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\User\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-07-11T23:44:23.113Z] CLI Version:   12.4.2
+[debug] [2023-07-11T23:44:23.113Z] Platform:      win32
+[debug] [2023-07-11T23:44:23.113Z] Node Version:  v18.16.0
+[debug] [2023-07-11T23:44:23.114Z] Time:          Wed Jul 12 2023 02:44:23 GMT+0300 (Eastern European Summer Time)
+[debug] [2023-07-11T23:44:23.114Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-11T23:44:23.117Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-07-11T23:44:23.164Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-11T23:44:23.165Z] > authorizing via signed-in user (asynktech@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\User\Desktop\Work\Skinopedia
+
+[debug] [2023-07-11T23:44:26.197Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-07-11T23:44:26.197Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}

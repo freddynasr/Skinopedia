@@ -1,0 +1,124 @@
+<form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+  <div class="row">
+    <div class="col-6">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        formControlName="name"
+        [value]="product.name"
+        required
+      />
+    </div>
+    <div class="col-6">
+      <label for="brand">Brand:</label>
+      <input
+        type="text"
+        id="brand"
+        name="brand"
+        required
+        formControlName="brand"
+        [value]="product.brand"
+        required
+      />
+    </div>
+    <div class="col-4">
+      <label for="price">Price:</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        formControlName="price"
+        [value]="product.price"
+        required
+      />
+    </div>
+    <div class="col-4">
+      <label for="discountPrice">Discount Price:</label>
+      <input
+        type="number"
+        id="discountPrice"
+        name="discountPrice"
+        formControlName="discountPrice"
+        [value]="product.discountPrice"
+        required
+      />
+    </div>
+    <div class="col-4">
+      <label for="quantity">Quantity:</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        formControlName="quantity"
+        [value]="product.quantity"
+        required
+      />
+    </div>
+    <div class="col-6">
+      <select class="areas" (change)="onTypeChange($event)">
+        <option [value]="type._id">{{ type.Name }}</option>
+        <option [value]="type._id" *ngFor="let type of types">
+          {{ type.Name }}
+        </option>
+      </select>
+    </div>
+    <div class="col-6">
+      <select class="areas" (change)="onSubTypeChange($event)">
+        <option [value]="subtype.id">{{ subtype.Name }}</option>
+        <option [value]="subType.id" *ngFor="let subType of subTypes">
+          {{ subType.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="col-12">
+      <label for="description">Description:</label>
+      <textarea
+        id="description"
+        name="description"
+        formControlName="description"
+        [value]="product.description"
+        required
+      ></textarea>
+    </div>
+
+    <div class="d-flex col-12" enctype="multipart/form-data" method="post">
+      <input
+        type="file"
+        name="image"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        required
+      />
+      <button type="button" (click)="upload()">Upload</button>
+    </div>
+    <app-spinner
+      class="d-flex col-12 justify-content-center"
+      *ngIf="imageUploadService.uploading"
+    ></app-spinner>
+    <p>{{ imageUploadService.response }}</p>
+    <span>
+      <img [src]="product.imageUrl" height="100px" width="100px" />
+    </span>
+    <div class="col-12 checkbox">
+      <div>
+        <input
+          type="checkbox"
+          (change)="handleChange('Active')"
+          [checked]="product.active"
+        />Active
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          (change)="handleChange('New')"
+          [checked]="product.new"
+        />New
+      </div>
+    </div>
+  </div>
+  <button type="submit">Save</button>
+</form>

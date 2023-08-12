@@ -1,0 +1,80 @@
+.changePassword{
+  display: flex;
+  flex-direction: column;
+
+  /* align-items: center; */
+
+}
+.input-password {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+}
+.input-password label {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.input-pass {
+  padding: 0.3rem;
+  border-radius: 5px;
+  border: 1px solid #06837b;
+  outline: none;
+  font-size: 1rem;
+  display: flex;
+  background-color: #fff;
+}
+
+.input-pass input {
+  border: none;
+  flex-grow: 1;
+}
+.input-pass input:focus {
+  outline: none;
+}
+
+.input-pass button {
+  background-color: #fff;
+  border: none;
+}
+
+.login-btn {
+  margin-top: 1rem;
+  background-color: #06837b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s;
+  flex: 1
+}
+.areas {
+  width: 100%;
+  padding: .5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.75;
+  border-radius: .3rem;
+  outline: 0;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border: 1px solid #ced4da;
+  /* appearance: none; */
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 1.8rem 0;
+}
+
+.areas:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.addlocation{
+  display: flex;
+  flex-direction: column;
+}

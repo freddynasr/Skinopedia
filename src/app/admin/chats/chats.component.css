@@ -1,0 +1,189 @@
+.ChatList{
+border-right: 1px solid #e6e6e6;
+height: auto;
+padding: 0;
+padding-left: 1rem;
+position: absolute;
+top: 0;
+left:0;
+bottom: 0;
+width: 40%;
+overflow-y: auto;
+}
+
+.ChatList a{
+  width: 100%;
+}
+
+.ChatList a.active,
+.ChatList a:hover,
+.ChatList a:active{
+  background-color: #f5f5f5;
+}
+
+.ChatListItem{
+  height: 3.5rem;
+  display: flex;
+  border-bottom:  1px solid #e6e6e6;
+  padding: 0;
+  margin-top: 5px;
+}
+
+
+.ChatListItemImage img{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.ChatListItemInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  flex: 1;
+}
+.chatTitle{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.ChatName{
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+
+}
+
+.ChatTime{
+  font-size: 1rem;
+  color: #999;
+  margin: 0;
+  padding-right: 5px;
+}
+.ChatMessage {
+  color: #999;
+  padding-bottom: 5px;
+  margin: 0;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+
+.ChatContainer {
+  height: 90vh;
+  margin-right: 0;
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.ChatList {
+  flex: 1;
+  overflow-y: auto;
+  /* Styles for chat list container */
+}
+
+.chatScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0rem;
+  width:60%;
+  padding-left: 1rem;
+  border-left: 1px solid #e6e6e6;
+  /* overflow-y: auto; */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  padding: 10px;
+  background-color: #f5f5f5;
+
+}
+
+.input-container input {
+  flex-grow: 1;
+  /* Styles for input field */
+}
+
+.input-container button {
+  margin-left: 10px;
+  /* Styles for send button */
+}
+
+.messages {
+  overflow-y: auto;
+  overflow-x: hidden; /* Optional: Hide horizontal scrollbar */
+  scroll-behavior: smooth; /* Optional: Enable smooth scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3rem ;
+}
+
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message.receiver {
+  background-color: #f5f5f5;
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start; /* Added */
+  text-align: left;
+}
+
+
+.message.sender {
+  background-color: #e2f2e6;
+  display: flex;
+  align-self: flex-end;
+  justify-content: flex-end; /* Added */
+  text-align: right;
+  margin-right: 1rem;
+}
+.time{
+  font-size: 0.8rem;
+  color: #999;
+  margin: 0;
+  padding-right: 5px;
+}
+
+.input-container input{
+  border:none;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+  border-radius: 20px;
+  padding-left: 10px;
+}
+.input-container button{
+  border:none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+.input-container button:hover{
+  color: #18d26e;
+}

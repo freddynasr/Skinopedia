@@ -1,0 +1,27 @@
+.image-size {
+  display: flex;
+  flex-direction: column;
+}
+.image-size img {
+  max-width: 100%;
+  max-height: auto;
+  margin: 1rem 0;
+}
+.bi-trash {
+  color: red;
+  cursor: pointer;
+}
+
+.addImage {
+  display: flex;
+  margin: 1rem 0;
+  background-color: #06837b;
+  cursor: pointer;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+}

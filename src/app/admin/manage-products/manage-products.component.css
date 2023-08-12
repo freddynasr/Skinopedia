@@ -1,0 +1,34 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.Title {
+  color: #06837b;
+  margin-left: 3rem;
+}
+
+.addProduct {
+  margin-right: 3rem;
+  background-color: #06837b;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.icons {
+  font-size: 1rem;
+  color: #06837b;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.bi {
+  cursor: pointer;
+}

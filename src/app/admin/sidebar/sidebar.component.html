@@ -1,0 +1,77 @@
+<div class="sidebar" [class.show]="showMenu">
+  <i class="bi bi-x close-button" (click)="toggleMenu()"></i>
+  <i class="bi bi-person-gear-fill close-button"></i>
+  <ul class="sidebar-menu">
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/Orders')"
+        [class.active]="activeLink === 'admin/dashboard/Orders'"
+        >Orders</a
+      >
+    </li>
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/ManageProducts')"
+        [class.active]="activeLink === 'admin/dashboard/ManageProducts'"
+        >Manage Products</a
+      >
+    </li>
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/Offers')"
+        [class.active]="activeLink === 'admin/dashboard/Offers'"
+        >Offers</a
+      >
+    </li>
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/DiscountCodes')"
+        [class.active]="activeLink === 'admin/dashboard/DiscountCodes'"
+        >Discount Codes</a
+      >
+    </li>
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/SlideShow')"
+        [class.active]="activeLink === 'admin/dashboard/SlideShow'"
+        >Manage SlideShow</a
+      >
+    </li>
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/Chats')"
+        [class.active]="activeLink === 'admin/dashboard/Chats'"
+        >Chats</a
+      >
+    </li>
+    <li>
+      <a
+        type="button"
+        (click)="navigateToRoute('admin/dashboard/settings')"
+        [class.active]="activeLink === 'admin/dashboard/settings'"
+        >Settings</a
+      >
+    </li>
+
+    <!-- Add more menu items as needed -->
+  </ul>
+</div>
+
+<nav class="nav-bar">
+  <i
+    type="button"
+    class="bi toggle-button bi-list"
+    (click)="toggleMenu()"
+    [class.active]="showMenu"
+  ></i>
+  <a class="image">
+    <img src="../assets/img/[removal.ai]_tmp-6478bf0a0ef4c.png" alt=""
+  /></a>
+  <a class="logout" (click)="logout()">Logout</a>
+</nav>

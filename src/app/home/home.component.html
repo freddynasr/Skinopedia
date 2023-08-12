@@ -1,0 +1,146 @@
+<!-- <router-outlet></router-outlet> -->
+<section class="section-bg">
+  <div class="container border-top section-bg">
+    <div class="button-container">
+      <div class="scroll-button right_border">
+        <strong>RETURN / EXCHANGE</strong>
+        <small>ON ELIGIBLE ORDERS</small>
+      </div>
+      <div class="scroll-button">
+        <strong>CASH ON DELIVERY</strong>
+        <small>AVAILABLE FOR ALL ORDERS</small>
+      </div>
+      <div class="scroll-button side_border">
+        <strong>PICK-UP AVAILABLE</strong>
+        <small>FROM: ZGHARTA AT AYOUB SPORT</small>
+      </div>
+      <div class="scroll-button">
+        <strong>FREE DELIVERY</strong>
+        <small>FOR ORDER OVER 50$</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-bg">
+  <div class="container border-top section-bg">
+    <div class="dropdown-container">
+      <app-dropdown
+        class="drop"
+        *ngFor="let x of dropDown"
+        [dropName]="x.dropName"
+        [sections]="x.sections"
+      ></app-dropdown>
+    </div>
+  </div>
+</section>
+
+<section class="section-bg">
+  <app-slideshow></app-slideshow>
+</section>
+
+<section id="new-items" class="section pb-3">
+  <div class="container">
+    <div class="title-container">
+      <h1 class="title">New Items</h1>
+      <p class="subtitle">Your trusted partner in skincare</p>
+    </div>
+    <div class="row">
+      <div
+        class="col-lg-3 col-md-4 col-sm-6 col-12"
+        *ngFor="let product of newProducts"
+      >
+        <app-card-item [product]="product"> </app-card-item>
+      </div>
+    </div>
+    <div
+      type="button"
+      class="load-more"
+      *ngIf="this.apiCaller.newProdIds.length % 12 === 0" && this.apiCaller.newProdIds.length !== 0
+      (click)="loadMore('new')"
+    >
+      Load More
+    </div>
+  </div>
+</section>
+
+<section id="offers-section" class="section-bg pb-3">
+  <div class="container">
+    <div class="discount-section">
+      <div class="title-container">
+        <h1 class="title">Offers</h1>
+        <p class="subtitle"></p>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 col-12"
+          *ngFor="let offer of offers"
+        >
+          <app-card-item [product]="offer"></app-card-item>
+        </div>
+      </div>
+    </div>
+    <div
+      type="button"
+      class="load-more"
+      *ngIf="this.apiCaller.offersIds.length % 12 === 0" && this.apiCaller.offersIds.length !== 0
+      (click)="loadMore('offers')"
+    >
+      Load More
+    </div>
+  </div>
+</section>
+
+<section id="discount-section" class="section-bg pb-3">
+  <div class="container">
+    <div class="discount-section">
+      <div class="title-container">
+        <h1 class="title">Discounts</h1>
+        <p class="subtitle">Grab them while they last!</p>
+      </div>
+
+      <div class="row">
+        <div
+          class="col-lg-3 col-md-4 col-sm-6 col-12"
+          *ngFor="let product of discProducts"
+        >
+          <app-card-item [product]="product"></app-card-item>
+        </div>
+      </div>
+    </div>
+    <div
+      type="button"
+      class="load-more"
+      *ngIf="this.apiCaller.discAndOffersIds.length % 12 === 0" && this.apiCaller.discAndOffersIds.length !== 0
+      (click)="loadMore('discount')"
+    >
+      Load More
+    </div>
+  </div>
+</section>
+
+<section id="shop" class="all-products pb-3">
+  <div class="title-container">
+    <h1 class="title">All Products</h1>
+    <p class="subtitle">Your trusted partner in skincare</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-12 col-sm-6 col-md-4 col-lg-3"
+        *ngFor="let product of products"
+      >
+        <app-card-item [product]="product"></app-card-item>
+      </div>
+    </div>
+    <div
+      type="button"
+      class="load-more"
+      *ngIf="this.apiCaller.Ids.length % 12 === 0" && this.apiCaller.Ids.length !== 0
+      (click)="loadMore('allproduct')"
+    >
+      Load More
+    </div>
+  </div>
+</section>

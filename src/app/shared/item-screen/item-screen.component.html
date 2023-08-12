@@ -1,0 +1,83 @@
+<section class="section-bg">
+  <div class="product-container">
+    <div class="product-image-container">
+      <img [src]="activeItem.imageUrl" class="product-image" />
+    </div>
+
+    <div class="product-details">
+      <h1 class="product-name">{{ activeItem.name }}</h1>
+      <h2 class="product-brand">{{ activeItem.brand }}</h2>
+      <p class="product-price">Price: {{ activeItem.price }}</p>
+      <p class="product-discount-price" *ngIf="activeItem.discountPrice !== 0">
+        Discounted Price: {{ activeItem.discountPrice }}
+      </p>
+      <p *ngIf="activeItem.typeof !== 'Offer'">Type: {{ activeItem.type }}</p>
+      <button class="add-to-cart-button" (click)="addToCart()">
+        <span *ngIf="!activeItem.addedToCart">Add to cart </span>
+        <span *ngIf="activeItem.addedToCart">Added to cart </span>
+        <i
+          class="bi"
+          [class.bi-cart-plus]="!activeItem.addedToCart"
+          [class.bi-cart-check-fill]="activeItem.addedToCart"
+        ></i>
+      </button>
+      <div class="quantity-control" *ngIf="activeItem.addedToCart">
+        <button (click)="decrementQuantity()">-</button>
+        <h4>Quantity: {{ activeItem.quantityOrdered }}</h4>
+        <button (click)="incrementQuantity()">+</button>
+      </div>
+    </div>
+
+    <div class="product-full-details">
+      <h3 class="product-description-title">Description:</h3>
+      <p class="product-description">{{ activeItem.description }}</p>
+      <h4 class="product-quantity-title" *ngIf="activeItem.typeof !== 'Offer'">
+        Quantity Left:
+      </h4>
+      <p class="product-quantity" *ngIf="activeItem.typeof !== 'Offer'">
+        {{ activeItem.quantity }}
+      </p>
+      <h4 *ngIf="activeItem.typeof === 'Offer'">Items:</h4>
+      <p *ngFor="let item of activeItem.ProductNames">{{ item }}</p>
+
+      <button
+        class="add-to-cart-button"
+        *ngIf="activeItem.addedToCart"
+        (click)="navigateToRoute('cart')"
+      >
+        Checkout
+      </button>
+    </div>
+  </div>
+  <div
+    class="container mt-3"
+    *ngIf="
+      activeItem.Products !== null ||
+      activeItem.Products !== undefined ||
+      activeItem.Products.length() !== 0
+    "
+  >
+    <div class="row">
+      <div
+        class="col-xl-3 col-md-6 col-sm-12 pb-2"
+        *ngFor="let item of activeItem.Products"
+      >
+        <app-card-item [product]="item"></app-card-item>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ... -->
+
+<div class="container uml-container">
+  <h2>You Might Also Like</h2>
+  <div class="row">
+    <div
+      class="col-lg-3 col-md-4 col-sm-6 col-12"
+      *ngFor="let product of relatedItems"
+    >
+      <app-card-item [product]="product"></app-card-item>
+    </div>
+  </div>
+</div>

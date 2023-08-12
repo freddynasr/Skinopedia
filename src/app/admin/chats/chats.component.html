@@ -1,0 +1,45 @@
+<div class="ChatContainer">
+  <div>
+    <div class="ChatList">
+      <a id="chatItem._id"  *ngFor="let chatItem of Chats" type="button" (click)="getMessages(chatItem._id)">
+        <div class="ChatListItem">
+          <div class="ChatListItemImage">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
+          </div>
+          <div class="ChatListItemInfo">
+            <div class="chatTitle">
+              <p class="ChatName">
+                <strong>{{ chatItem.Name }}</strong>
+              </p>
+              <p class="ChatTime">{{ chatItem.lastMessage.date }}</p>
+            </div>
+            <p class="ChatMessage">{{ chatItem.lastMessage.message }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="chatScreen">
+      <div class="messages" #messagesContainer>
+        <div
+          *ngFor="let message of Messages"
+          [class]="
+            message.type === 'received' ? ' message receiver' : 'message sender'
+          "
+        >
+          <div>
+            {{ message.message }}
+          </div>
+          <div class='time' >
+            {{ message.date }}
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="input-container" *ngIf="activeId !== ''">
+      <input type="text" placeholder="Type your message" [(ngModel)]="newMessage" (keyup.enter)="SendMessage()"  />
+      <button (click)="SendMessage()">Send</button>
+    </div>
+  </div>
+</div>

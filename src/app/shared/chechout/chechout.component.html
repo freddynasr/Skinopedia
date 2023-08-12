@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <app-cart-screen></app-cart-screen>
+    </div>
+    <div class="col-12 col-md-6">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" class="Form">
+        <div class="checkout-container">
+          <h1 class="form-title">Checkout Form</h1>
+          <p class="form-description">
+            Please fill in the form below to complete your purchase.
+          </p>
+          <div class="row">
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="firstName" type="text" />
+              </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="lastName" type="text" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <mat-radio-group
+            aria-label="Select a gender"
+            formControlName="gender"
+          >
+            <mat-label>Gender:</mat-label>
+
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input matInput formControlName="phoneNumber" type="text" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" />
+          </mat-form-field>
+
+          <mat-radio-group
+            aria-label="Select a delivery method"
+            formControlName="deliveryMethod"
+          >
+            <mat-label>Delivery Method:</mat-label>
+
+            <mat-radio-button value="delivery">Delivery</mat-radio-button>
+            <mat-radio-button value="pickup">Pick Up</mat-radio-button>
+          </mat-radio-group>
+          <div *ngIf="checkoutForm.value.deliveryMethod !== 'pickup'">
+            <mat-form-field appearance="fill">
+              <mat-label>Building Name</mat-label>
+              <input matInput formControlName="buildingName" type="text" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Building Floor</mat-label>
+              <input matInput formControlName="buildingFloor" type="number" />
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Directions</mat-label>
+              <textarea
+                matInput
+                formControlName="buildingFloor"
+                type="text"
+                rows="3"
+                formControlName="Directions"
+              ></textarea>
+            </mat-form-field>
+
+            <select class="areas" (change)="onChangeArea($event)">
+              <option value="">Choose Your area</option>
+              <option [value]="area.name" *ngFor="let area of areas">
+                {{ area.name }}
+              </option>
+            </select>
+
+            <app-google-map class="map mb-5"></app-google-map>
+          </div>
+          <div *ngIf="checkoutForm.value.deliveryMethod === 'pickup'">
+            PICK UP ONLY AVAILABLE IN ZGHARTA AT AYOUB SPORT
+          </div>
+          <br />
+          <mat-checkbox color="accent" formControlName="acceptTerms">
+          </mat-checkbox>
+          I accept the
+          <a type="button" (click)="openTermsModal()">Terms and Conditions</a>
+          <br />
+          <span *ngIf="apiCaller.discountcheck"
+            >Checking Discount Code...
+          </span>
+          <a mat-button class="discountCode" (click)="openDiscountDialog()">
+            Enter Discount Code
+          </a>
+
+          <button mat-raised-button color="accent" type="submit">Submit</button>
+
+          <h4 *ngIf="error" class="error">{{ error }}</h4>
+          <h4 *ngIf="success" class="success">{{ success }}</h4>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="modal" [class.show]="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm the order</h5>
+        <a type="button" class="close" (click)="cancelOrder()">
+          <span class="exit" aria-hidden="true">&times;</span>
+        </a>
+      </div>
+      <a type="button" class="Confirm" (click)="sendOrder()">Confirm</a>
+    </div>
+  </div>
+</div>

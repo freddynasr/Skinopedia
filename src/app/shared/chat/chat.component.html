@@ -1,0 +1,46 @@
+<a class="open-chat-button" (click)="toggleChat()"
+  ><i class="bi bi-chat-dots-fill"></i
+></a>
+<div class="backdrop" *ngIf="chatOpen" (click)="toggleChat()"></div>
+
+<div
+  class="chat-container"
+  *ngIf="chatOpen"
+  data-aos="fade-up"
+  data-aos-delay="5"
+>
+  <div class="name-input-container" *ngIf="!userNameEntered">
+    <input [(ngModel)]="userName" placeholder="Enter your name..." />
+    <button (click)="enterUserName()">Enter</button>
+  </div>
+
+  <span *ngIf="userNameEntered">
+    <div class="topMessage">
+      <strong>Contact Our Beauty Experts</strong> Send us your message and we'll
+      reply ASAP
+    </div>
+    <div class="chatScreen">
+      <div class="messages" #messagesContainer>
+        <div
+          *ngFor="let message of messages"
+          [class]="
+            message.type === 'received' ? ' message receiver' : 'message sender'">
+          <div>
+            {{ message.message }}
+          </div>
+          <div class="time">
+            {{ message.date }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input
+        [(ngModel)]="newMessage"
+        placeholder="Type a message..."
+        (keyup.enter)="SendMessage()"
+      />
+      <button (click)="SendMessage()">Send</button>
+    </div>
+  </span>
+</div>

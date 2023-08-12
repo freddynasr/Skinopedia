@@ -1,0 +1,43 @@
+<div class="container">
+  <div>
+    <h3 class="title">Slide Show</h3>
+  </div>
+  <div class="row">
+    <div class="col-6 slideShowImages">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 image-size" *ngFor="let image of slideImages">
+            <i
+              class="bi bi-trash"
+              (click)="removeImage(image.id !== undefined ? image.id : '')"
+            ></i>
+            <img [src]="image.Image" />
+            <input type="number" [(ngModel)]="image.Order" />
+          </div>
+          <button class="addImage" (click)="updateOrder()">
+            Save New Order
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 AddSlideShowImage">
+      <div class="row">
+        <input
+          type="file"
+          class="form-control"
+          id="exampleFormControlFile1"
+          (change)="onFileSelected($event)"
+        />
+        <input
+          type="number"
+          class="form-control mt-3"
+          id="order"
+          placeholder="order"
+          [(ngModel)]="newImage.Order"
+        />
+
+        <button class="addImage" (click)="upload()">Add Image</button>
+      </div>
+    </div>
+  </div>
+</div>

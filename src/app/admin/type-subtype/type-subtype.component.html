@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="types" *ngFor="let item of types">
+        <div class="type">
+          <h5>
+            <strong>{{ item.Name }}</strong>
+          </h5>
+          <i class="bi bi-x" (click)="removeType(item._id)"></i>
+        </div>
+        <ul>
+          <li *ngFor="let subitem of item.SubTypes">
+            <div class="d-flex">
+              <p>{{ subitem.name }}</p>
+              <i
+                class="bi bi-x"
+                (click)="removeSubType(subitem.id, item._id)"
+              ></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-6">
+      <form (ngSubmit)="addType()" [formGroup]="typeForm">
+        <div class="d-flex" enctype="multipart/form-data" method="post">
+          <input
+            type="text"
+            name="image"
+            required
+            placeholder="Enter new Type"
+            formControlName="type"
+          />
+          <button type="submit">Add Type</button>
+        </div>
+      </form>
+
+      <form (ngSubmit)="addSubtype()" class="mt-5" [formGroup]="subtypeForm">
+        <select (change)="handleOptionChange($event)">
+          <option value="">Select Type</option>
+          <option *ngFor="let type of types" [value]="type._id">
+            {{ type.Name }}
+          </option>
+        </select>
+        <div class="d-flex">
+          <input
+            type="text"
+            name="image"
+            required
+            placeholder="Enter new Subtype"
+            formControlName="subtype"
+          />
+          <button type="submit" [disabled]="isDisabled">Add Subtype</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

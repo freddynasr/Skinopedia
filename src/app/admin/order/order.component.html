@@ -1,0 +1,141 @@
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-6 Order-Section">
+      <button>Unconfirmed Orders</button>
+    </div>
+    <div class="col-6 Order-Section">
+      <button [class.active]="" >All Orders</button>
+    </div>
+  </div>
+</div> -->
+
+<div class="accordion-list">
+  <ul>
+    <li *ngFor="let order of orders; let i = index" (click)="assign(order._id)">
+      <a
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#accordion-list-' + i"
+        class="collapse"
+        >{{ order.ReceiverFirstName }} {{ order.ReceiverLastName }} ({{
+          order.Wakilni ? "Delivery" : "Pickup"
+        }}) -
+        <span
+          [class]="
+            order.Accepted && order.Confirmed
+              ? 'text-info'
+              : !order.Accepted && order.Confirmed
+              ? 'text-danger'
+              : 'text-warning'
+          "
+          >{{
+            order.Accepted && order.Confirmed
+              ? "Approved"
+              : !order.Accepted && order.Confirmed
+              ? "Rejected"
+              : "Pending"
+          }}</span
+        >
+        <i class="bx bx-chevron-up icon-close"></i
+        ><i class="bx bx-chevron-down icon-show"></i
+      ></a>
+      <div
+        [id]="'accordion-list-' + i"
+        class="collapse"
+        data-bs-parent=".accordion-list"
+      >
+        <p><strong>Phone:</strong> {{ order.ReceiverPhone }}</p>
+        <p><strong>Email:</strong> {{ order.ReceiverEmail }}</p>
+        <p *ngIf="order.wakilni"><strong>Area:</strong> {{ order.Area }}</p>
+        <p><strong>Directions: </strong>{{ order.ReceiverDirections }}</p>
+        <p><strong>Building: </strong>{{ order.ReceiverBuilding }}</p>
+        <p><strong>Total Price: </strong> {{ order.TotalPrice }}</p>
+        <p *ngIf="order.DiscountCode">
+          <strong>Discount Code:</strong> {{ order.DiscountCode }}
+        </p>
+        <p><strong>Order:</strong></p>
+        <ul>
+          <li *ngFor="let item of order.Products" class="order">
+            <div *ngIf="item.type === 'Product'">
+              ~{{ item.name }} x {{ item.quantity }} -
+              <strong>Quantity left:</strong> {{ item.remainingQuantity }} -
+              <strong>Quantity left after Confirmation:</strong>
+              {{ item.remainingQuantity - item.quantity }}
+            </div>
+            <div *ngIf="item.type === 'Offer'">
+              ~{{ item.name }} x {{ item.quantity }} -
+              <strong>Quantity left:</strong> {{ item.remainingQuantity }} -
+              <strong>Quantity left after Confirmation:</strong>
+              {{ item.remainingQuantity - item.quantity }}
+              <ul>
+                <li *ngFor="let Product of item.products" class="order mt-1">
+                  <i class="bi bi-chevron-right"></i>{{ Product.name }} x
+                  {{ Product.quantity }}
+                  <strong>Quantity left:</strong>
+                  {{ Product.remainingquantity }} -
+                  <strong>Quantity left after Confirmation:</strong>
+                  {{ Product.remainingquantity - Product.quantity }}
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+        <div class="button-container">
+          <button
+            *ngIf="!order.Confirmed"
+            class="btn btn-success me-5"
+            (click)="openModal(order._id, 'confirm', order.Wakilni)"
+          >
+            Confirm Order
+          </button>
+          <button
+            *ngIf="!order.Confirmed"
+            class="btn btn-warning"
+            (click)="openModal(order._id, 'cancel')"
+          >
+            Cancel Order
+          </button>
+          <button
+            class="btn btn-danger"
+            (click)="removeOrder(id)"
+            *ngIf="order.Confirmed"
+          >
+            Delete Order
+          </button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="modal" [class.show]="showModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ title }}</h5>
+        <a type="button" class="close" (click)="closeModal()">
+          <span class="exit" aria-hidden="true">&times;</span>
+        </a>
+      </div>
+      <div *ngIf="confirm === 'confirm' && wakilni" class="container">
+        <div class="row">
+          <div *ngFor="let item of Locations; let i = index" class="col-6 mb-2">
+            <div
+              class="locations"
+              (click)="ChooseLocation(i)"
+              [class.active]="activeLocationIndex === i"
+            >
+              <p>{{ item.locationName }}</p>
+              <p>{{ item.area }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        type="button"
+        [class]="confirm === 'confirm' ? 'Confirm' : 'remove'"
+        (click)="ConfirmOrder(confirm, id, wakilni)"
+        >{{ title }}</a
+      >
+    </div>
+  </div>
+</div>

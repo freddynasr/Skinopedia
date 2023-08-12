@@ -1,0 +1,42 @@
+<div class="card text-center bg-light" data-aos="zoom-in" data-aos-delay="100">
+  <img
+    [src]="product.imageUrl"
+    class="card-img-top"
+    alt="{{ product.name }}"
+    (click)="navigateToRoute('product', product.id)"
+  />
+  <div class="card-body">
+    <div (click)="navigateToRoute('product', product.id)">
+      <h5 class="card-title text-primary">{{ product.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ product.brand }}</h6>
+      <h6
+        class="card-subtitle mb-2 text-muted"
+        *ngFor="let name of product.ProductNames"
+      >
+        {{ name }}
+      </h6>
+
+      <p class="card-text text-success" *ngIf="product.discountPrice">
+        <del class="del-price"
+          ><em>{{ product.price }}$</em></del
+        >
+        {{ product.discountPrice }}$
+      </p>
+      <p class="card-text" *ngIf="!product.discountPrice">
+        {{ product.price }}$
+      </p>
+    </div>
+    <a *ngIf="!admin" type="button" class="addToCart" (click)="addToCart()"
+      ><i
+        class="bi"
+        [class.bi-cart-plus]="!product.addedToCart"
+        [class.bi-cart-check-fill]="product.addedToCart"
+      ></i
+    ></a>
+    <div class="quantity-control" *ngIf="product.addedToCart || edit === true">
+      <button (click)="decrementQuantity()">-</button>
+      <h6>Quantity: {{ product.quantityOrdered }}</h6>
+      <button (click)="incrementQuantity()">+</button>
+    </div>
+  </div>
+</div>

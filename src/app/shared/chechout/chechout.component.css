@@ -1,0 +1,204 @@
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px;
+  margin-top: 5rem;
+}
+
+form mat-form-field {
+  margin: 0.5em 0;
+  width: 100%;
+}
+
+button {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+/* Highlighting the label and underline on focus */
+.mat-form-field-label {
+  color: #00867b !important;
+}
+
+.mat-form-field-underline {
+  background-color: #00867b !important;
+}
+
+/* ::ng-deep .mat-form-field.mat-focused .mat-form-field-outline-thick {
+  color: #00867b !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-outline {
+  color: #00867b !important;
+} */
+
+button {
+  background-color: #00867b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+button:hover {
+  background-color: #06837b;
+  color: white;
+}
+
+/* Style for invalid fields */
+.ng-invalid.ng-touched .mat-form-field-label {
+  color: red !important;
+}
+
+.ng-invalid.ng-touched .mat-form-field-underline {
+  background-color: red !important;
+}
+
+.checkout-container {
+  padding: 2rem;
+
+}
+.checkout-container .error{
+  text-align: center;
+  padding: 1rem;
+  color: red;
+}
+
+.checkout-container .success{
+  text-align: center;
+  padding: 1rem;
+  color: limegreen;
+}
+
+.form-title {
+  color: #00867b;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form-description {
+  color: #3f51b5;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+.map {
+  margin-top: 1rem ;
+  margin-bottom: 1rem;
+}
+.areas {
+  width: 100%;
+  padding: .5rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.75;
+  border-radius: .3rem;
+  outline: 0;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  border: 1px solid #ced4da;
+  /* appearance: none; This is to remove the default browser styling */
+  background-color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+
+}
+
+.areas:focus {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.discountCode{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid#06837b;
+  border-radius: 4px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+.discountCode:hover{
+  color: #18d26e;
+}
+
+
+
+
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal .bi{
+  vertical-align: middle;
+  color: #06837b;
+  font-size: 2rem;
+}
+.modal.body {
+align-items: center;
+}
+.modal.show {
+  display: flex;
+}
+.modal-dialog {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.modal-header .exit{
+  font-size: 2rem;
+}
+
+.modal .Confirm{
+  background-color: #06837b;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 1rem;
+  transition-duration: 0.4s;
+}
+
+.modal .confirm:hover {
+  background-color: #18d26e;
+  color: white;
+}

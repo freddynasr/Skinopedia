@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Enter Discount Code</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Discount Code</mat-label>
+    <input matInput [(ngModel)]="discountCode" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="d-flex align-item-center justify-content-center">
+  <button class="discountCodeButton2" mat-button (click)="onNoClick()">Cancel</button>
+  <button class="discountCodeButton" mat-button  (click)="validateDiscountCode()">
+    Enter
+  </button>
+</div>

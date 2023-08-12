@@ -1,0 +1,65 @@
+<header
+  id="header"
+  class="scroll-to-top"
+  [ngClass]="{ 'show-scrollTop': windowScrolled }"
+>
+  <div class="container d-flex align-items-center">
+    <nav id="navbar" class="navbar" [class.navbar-mobile]="openNavbar">
+      <div class="cart">
+        <a
+          class=""
+          [class.active]="activeLink === 'cart'"
+          (click)="navigateToRoute('cart')"
+        >
+          <i class="bi bi-cart4"></i>
+        </a>
+      </div>
+    </nav>
+    <a class="logo" href="index.html">
+      <img
+        src="../assets/img/[removal.ai]_tmp-6478bf0a0ef4c.png"
+        alt=""
+        class="img-fluid"
+      />
+    </a>
+    <nav id="navbar" class="navbar" [class.navbar-mobile]="openNavbar">
+      <ul>
+        <li>
+          <a
+            class="nav-link"
+            [class.active]="activeLink === 'Home'"
+            (click)="navigateToRoute('Home')"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            [class.active]="activeLink === 'About-us'"
+            (click)="navigateToRoute('About-us')"
+            >About Us</a
+          >
+        </li>
+        <li>
+          <a
+            class="nav-link"
+            [class.active]="activeLink === 'Contact-us'"
+            (click)="navigateToRoute('Contact-us')"
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <i
+        class="bi mobile-nav-toggle bi-list"
+        (click)="toggleNavbar()"
+        [class.bi-x]="openNavbar"
+      ></i>
+    </nav>
+  </div>
+  <div class="container d-flex align-items-center justify-content-center mt-5">
+    <app-search-bar></app-search-bar>
+  </div>
+</header>
+
+<a (click)="scrollToTop()" class="back-to-top d-flex align-items-center justify-content-center" [class.active]="windowScrolled" ><i class="bi bi-arrow-up-short"></i></a>
+<app-chat></app-chat>

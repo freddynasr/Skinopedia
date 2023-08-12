@@ -1,0 +1,69 @@
+.discountCodes {
+  border-right: 1px solid #ccc;
+  padding: 0;
+}
+
+.discountCode {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.addCode {
+  background-color: #06837b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  margin-left: 10px;
+  text-align: center;
+  margin-top: 1rem;
+  margin-left: 0;
+  width: 100%;
+}
+
+.addCode:hover {
+  background-color: #18d26e;
+}
+
+.bi-trash {
+  font-size: 1rem;
+  color: #06837b;
+  margin: 0 1rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.info p {
+  margin: 0;
+}
+
+.reset {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.reset-btn {
+  background-color: #06837b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  margin-left: 0;
+}
+.reset-btn:hover {
+  background-color: #18d26e;
+}
+.bi {
+  cursor: pointer;
+}

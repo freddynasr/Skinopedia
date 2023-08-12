@@ -1,0 +1,18 @@
+<div class="cart-container">
+  <div class="total">
+    <div>Subtotal: ${{ this.cartService.subtotal }}</div>
+    <div>Delivery fees: ${{ this.cartService.deliveryFee }}</div>
+    <div>Discount: {{ this.apiCaller.discountPercentage }}%</div>
+    <div>Total: ${{ this.cartService.Total }}</div>
+  </div>
+  <h1>Your Cart</h1>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-12" *ngFor="let product of cartItems">
+      <div class="cart-items">
+        <app-card-item [product]="product"></app-card-item>
+      </div>
+    </div>
+    <!-- <h4 *ngIf="cart"> Your Cart is empty</h4> -->
+  </div>
+</div>

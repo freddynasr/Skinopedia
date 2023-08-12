@@ -1,0 +1,32 @@
+<body>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-container">
+    <a class="image">
+      <img src="../assets/img/[removal.ai]_tmp-6478bf0a0ef4c.png" alt="" />
+    </a>
+    <div class="input-email">
+      <label for="username">Email</label>
+      <div class="input-password">
+
+      <input
+        type="text"
+        formControlName="email"
+        class=""
+        id="username"
+        placeholder="Enter email"
+      />
+    </div>
+    </div>
+    <div class="input-password">
+      <label for="password">Password</label>
+      <div class="input-pass">
+        <input
+          [type]="passwordHide ? 'password' : 'text'" formControlName="password"  id="password" placeholder="Enter password"/>
+
+        <button type="button" class="viewPass" (click)="togglePasswordVisibility()">
+          <i [ngClass]="{'bi bi-eye': passwordHide,'bi bi-eye-slash': !passwordHide}"class="fas"></i>
+        </button>
+      </div>
+    </div>
+    <button type="submit" class="login-btn">Submit</button>
+  </form>
+</body>

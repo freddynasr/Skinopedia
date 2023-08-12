@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 discountCodes">
+      <div *ngFor="let discountCode of discountCodes">
+        <div class="discountCode">
+          <p>
+            <strong>Code: </strong> {{ discountCode.DiscountCode }} -
+            <strong>Used: </strong>{{ discountCode.orderCount }}
+          </p>
+          <div class="info">
+            <p>
+              <strong>Owner: </strong> {{ discountCode.Owner }} -
+              <strong>Percentage: </strong
+              >{{ discountCode.DiscountPercentage }}%
+            </p>
+            <i
+              class="bi bi-trash"
+              style="color: red"
+              (click)="deleteDiscountCode(discountCode._id)"
+            ></i>
+            <!-- <i class="bi bi-pen" (click)="copyToForm(discountCode)"></i> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 addDiscountCode">
+      <div class="header reset">
+        <h4 class="Title" style="color: #06837b" (click)="addDiscountCode()">
+          Add Discount Code
+        </h4>
+        <button type="button" (click)="restForm()" class="reset-btn">
+          Reset
+        </button>
+      </div>
+      <form class="form" [formGroup]="code" (ngSubmit)="addDiscountCode()">
+        <div class="form-group">
+          <label for="code">Code</label>
+          <input
+            type="text"
+            class="form-control"
+            id="code"
+            placeholder="Enter Code"
+            formControlName="DiscountCode"
+            [value]="selectedDiscountCode.DiscountCode"
+          />
+        </div>
+        <div class="form-group">
+          <label for="owner">Owner</label>
+          <input
+            type="text"
+            class="form-control"
+            id="owner"
+            placeholder="Enter Owner"
+            [value]="selectedDiscountCode.Owner"
+            formControlName="Owner"
+          />
+        </div>
+        <div class="form-group">
+          <label for="discount">Discount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="discount"
+            placeholder="Enter Discount"
+            formControlName="DiscountPercentage"
+            [value]="selectedDiscountCode.DiscountPercentage"
+          />
+        </div>
+        <button class="addCode" type="submit">Add Discount Code</button>
+      </form>
+    </div>
+  </div>
+</div>

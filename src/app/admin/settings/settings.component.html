@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <form class="changePassword" [formGroup]="changePasswordForm">
+        <h4>Change Password</h4>
+        <div class="input-password">
+          <label for="password">Old Password</label>
+          <div class="input-pass">
+            <input
+              [type]="passwordHide ? 'password' : 'text'"
+              formControlName="oldPassword"
+              id="password"
+              placeholder="Old Password"
+            />
+
+            <button
+              type="button"
+              class="viewPass"
+              (click)="togglePasswordVisibility(1)"
+            >
+              <i
+                [ngClass]="{
+                  'bi bi-eye': passwordHide,
+                  'bi bi-eye-slash': !passwordHide
+                }"
+                class="fas"
+              ></i>
+            </button>
+          </div>
+        </div>
+        <div class="input-password">
+          <label for="password">New Password</label>
+          <div class="input-pass">
+            <input
+              [type]="passwordHide2 ? 'password' : 'text'"
+              formControlName="newPassword"
+              id="password"
+              placeholder="New Password"
+            />
+
+            <button
+              type="button"
+              class="viewPass"
+              (click)="togglePasswordVisibility(2)"
+            >
+              <i
+                [ngClass]="{
+                  'bi bi-eye': passwordHide2,
+                  'bi bi-eye-slash': !passwordHide2
+                }"
+                class="fas"
+              ></i>
+            </button>
+          </div>
+        </div>
+        <div class="input-password">
+          <label for="password">Confirm Password</label>
+          <div class="input-pass">
+            <input
+              [type]="passwordHide ? 'password' : 'text'"
+              formControlName="confirmPassword"
+              id="password"
+              placeholder="Confirm Password"
+            />
+
+            <button
+              type="button"
+              class="viewPass"
+              (click)="togglePasswordVisibility(3)"
+            >
+              <i
+                [ngClass]="{
+                  'bi bi-eye': passwordHide3,
+                  'bi bi-eye-slash': !passwordHide3
+                }"
+                class="fas"
+              ></i>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="login-btn">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <form [formGroup]="addLocationForm" class="addlocation" (ngSubmit)="AddLocation()">
+        <h4>Add Location</h4>
+        <div class="input-password">
+          <label for="password">Name</label>
+          <div class="input-pass">
+            <input
+              type='text'
+              formControlName="locationName"
+              id="name"
+              placeholder="Name"
+            />
+          </div>
+        </div>
+        <div class="input-password">
+          <label for="floor">Floor</label>
+          <div class="input-pass">
+            <input
+              type='number'
+              formControlName="floor"
+              id="floor"
+              placeholder="Floor"
+            />
+          </div>
+        </div>
+        <select class="areas" (change)="onAreaChange($event)">
+          <option>Choose your area</option>
+          <option [value]="area.name" *ngFor="let area of areas">
+            {{ area.name }}
+          </option>
+        </select>
+        <app-google-map></app-google-map>
+        <button type="submit" class="login-btn mb-3">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

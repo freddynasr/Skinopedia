@@ -1,0 +1,33 @@
+.about-heading {
+  color: #06837b;
+}
+
+.about-image-container{
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: #000000;
+  margin-bottom: 1rem;
+}
+
+.about-image {
+/* border-radius: 50%; */
+height: 20rem;
+width: 20rem;
+
+/* display: flex;
+justify-content: center; */
+}
+
+.about-subheading {
+  color: #06837b;
+}
+
+.about-text {
+  color: #000000;
+  text-align: justify;
+}
+
+/* .about-btn {
+  background-color: #FFBDBD;
+  color: #000000;
+} */

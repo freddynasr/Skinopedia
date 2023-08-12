@@ -1,0 +1,18 @@
+<section class="search-screen">
+  <div class="container">
+    <h2>Search results for: "{{ searchParam }}"</h2>
+    <div class="row">
+      <div
+        class="col-12 col-sm-6 col-md-4 col-lg-3"
+        *ngFor="let product of this.apiCaller.searchResult"
+      >
+        <app-card-item
+          [product]="product"
+        ></app-card-item>
+      </div>
+      <h4 *ngIf="!this.apiCaller.match">No Matches</h4>
+      <a type="button"  class="load-more" *ngIf="this.apiCaller.searchIds.length % 24 === 0 && this.apiCaller.match" (click)="loadMore()">Load More</a>
+
+    </div>
+  </div>
+</section>
