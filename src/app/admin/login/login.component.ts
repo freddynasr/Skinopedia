@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/shared/guard/authentication.service';
+import { AngularFireMessaging } from '@angular/fire/compat/messaging';
+
 
 @Component({
   selector: 'app-login',
@@ -10,6 +12,7 @@ import { AuthenticationService } from 'src/app/shared/guard/authentication.servi
 })
 export class LoginComponent implements OnInit {
   constructor(
+    private afMessaging: AngularFireMessaging,
     private formBuilder: FormBuilder,
     private router: Router,
     private authService: AuthenticationService
@@ -26,6 +29,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['admin/dashboard']);
       return;
     }
+    this.requestPermission();
   }
   onSubmit() {
     let credentials = {
@@ -39,6 +43,18 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
       } else {
         alert('Invalid Credentials');
+      }
+    });
+  }
+
+  requestPermission() {
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        this.afMessaging.requestToken
+          .subscribe(
+            (token) => { console.log('FCM Token FROM LOGIN:', token); },
+            (error) => { console.error(error); }
+          );
       }
     });
   }
